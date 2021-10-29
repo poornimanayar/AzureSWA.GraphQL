@@ -1,0 +1,10 @@
+﻿query GetBooks{
+  GetBooks{
+    id,
+    title,
+    author{
+        id,
+        name
+    }
+  }
+}

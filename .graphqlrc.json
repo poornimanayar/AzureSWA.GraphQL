@@ -1,0 +1,12 @@
+{
+  "projects": [
+    {
+      "schema": [
+        "Client/AzureSWAGraphQLClient/schema.graphql"
+      ],
+      "documents": [
+        "Client/AzureSWAGraphQLClient/**/*.graphql"
+      ]
+    }
+  ]
+}

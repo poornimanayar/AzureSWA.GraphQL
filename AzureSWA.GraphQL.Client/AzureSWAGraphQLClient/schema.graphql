@@ -1,0 +1,24 @@
+schema {
+  query: Query
+}
+
+type Query {
+  GetBooks: [Book]
+  GetBook(id: Int!): Book
+}
+
+type Book {
+  "The id of the book"
+  id: Int
+  "The title of the book"
+  title: String
+  "The author of the book"
+  author: Author
+}
+
+type Author {
+  "The id of the author"
+  id: Int
+  "The name of the author"
+  name: String
+}

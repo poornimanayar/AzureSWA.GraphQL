@@ -1,0 +1,45 @@
+﻿@page "/fetchdata"
+@inject AzureSWAGraphQLClient azureSwaGraphQLClient
+
+<h1>Books</h1>
+
+<p>This component demonstrates fetching data from the API.</p>
+
+@if (books == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in books)
+            {
+                <tr>
+                    <td>@book.Id</td>
+                    <td>@book.Title</td>
+                    <td>@book.Author.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<IGetBooks_GetBooks> books;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await azureSwaGraphQLClient.GetBooks.ExecuteAsync();
+        books = response.Data.GetBooks.ToList();
+    }
+
+
+}
